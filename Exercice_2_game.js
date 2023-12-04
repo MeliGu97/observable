@@ -32,7 +32,7 @@ const usersObservable = of(users)
     map(users => users.map(user => ({ ...user, name: user.name.charAt(0).toUpperCase() + user.name.slice(1) })))
   );
 
-// Souscrivez à l'Observable
+// Souscription à l'Observable
 usersObservable.subscribe({
   next: user => console.log('Liste des utilisateurs répondant à tous les critères :', user),
   complete: () => console.log('La liste est maintenant vide')
