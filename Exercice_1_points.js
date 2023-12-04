@@ -9,6 +9,18 @@ const source = of(
     { x: 8.9, y: -2.6 }
 );
 
-// Mapping data  TODO Filtre
+// Fonction pour calculer la distance d'un point par rapport à O(0,0)
 
-// S'inscrire TODO Afficher les données
+const calculateDistance = point => Math.sqrt(point.x ** 2 + point.y ** 2);
+console.log("toto:");
+
+// Opérateur max() pour trouver le point le plus éloigné
+source.pipe(
+    max((point1, point2) => {
+        const distance1 = calculateDistance(point1);
+        const distance2 = calculateDistance(point2);
+        return distance1 - distance2;
+    })
+).subscribe(maxPoint => {
+    console.log("Le point le plus éloigné est :", maxPoint);
+});
